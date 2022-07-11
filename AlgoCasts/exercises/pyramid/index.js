@@ -14,6 +14,17 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n, totalSpaces = 0, hashAmount = 1) {
+  if (n === 0) return;
+  if (!totalSpaces) totalSpaces = n + n - 1;
+
+  const spaceAmount = totalSpaces - hashAmount;
+  const hashes = "#".repeat(hashAmount);
+  const spaces = " ".repeat(spaceAmount / 2);
+
+  console.log(`${spaces}${hashes}${spaces}`);
+  
+  pyramid(n - 1, totalSpaces, hashAmount + 2);
+}
 
 module.exports = pyramid;
